@@ -22,13 +22,21 @@ public class Array {
 			// To make the i inclusive, use i+1 as parameter, i+1 is exclusive
 			int swap = array[i];
 			array[i] = array[j];
-			array[j] = swap;
-			
+			array[j] = swap;		
 		}
 	}
 	
-	public void sort() {
+	public void sort(Sorter sorter) {
+		sorter.sort(array);
+	}
+	
+	public boolean verify() {
+		for (int i = 1; i < array.length; i++) {
+			if(array[i-1]> array[i])
+				return false;
+		}
 		
+		return true;	
 	}
 
 	public static void main(String[] args) {
