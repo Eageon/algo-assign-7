@@ -1,0 +1,35 @@
+
+CS 5343.002 Algorithm analysis and Data Structures
+Fall 2013
+Thu, Oct 31
+Assignment #7
+
+Version: 1.0
+Due: 2 AM, Fri, November 8, on eLearning
+
+Instructions: This is a required programming assignment (individual or group). 
+You can (re)use any code from the text book, and its authors's web sites.
+
+
+In this project, you will compare the performance of the following sorting
+algorithms: (a) Merge sort, (b) Quick sort, (c) Heap sort, and any other
+comparison-based sorting algorithm of your choice.
+
+Run each algorithm 1000 times (say) in a loop as follows and calculate
+the average running time for an array of size n:
+1. Initialize array A[0..n-1] with A[i] = i, for 0 <= i < n.
+2. Shuffle the elements to create a random instance:
+   for i = n-1 downto 1 do
+       j = random integer with 0 <= j <= i
+       exchange a[j] and a[i]
+3. Sort the array with the selected algorithm.
+4. Verify that the sorting is correct:
+   for i = 1 to n-1 do
+       check if A[i-1] <= A[i]
+
+Repeat the experiment for several n:
+	10000, 50000, 100000, 200000, 400000, 800000.
+Submit a table of these running times and plot a graph of the
+running times (y-axis) of the algorithms vs problem size (x-axis).
+
+Upload your code and your report (pdf or docx) on elearning.
