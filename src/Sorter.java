@@ -1,4 +1,4 @@
 
 public interface Sorter {
-	public void sort(int[] array);
+	public abstract void sort(int[] array);
 }

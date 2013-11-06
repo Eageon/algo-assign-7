@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.SortedMap;
 
 public class Array {
 	int[] array;
