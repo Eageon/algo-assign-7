@@ -49,5 +49,9 @@ public class Array {
 			heapArray.initialize();
 		}
 	}
+	
+	public static void TestofAlgorithmWithNElements(int[] array, Sorter sort, int n) {
+		
+	}
 
 }
