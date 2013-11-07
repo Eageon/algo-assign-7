@@ -22,7 +22,14 @@ public class QuickSort implements Sorter {
 	}
 
 	private void quicksort(int[] array, int left, int right) {
-		if (left + CUTOFF <= right) {
+		//if (left + CUTOFF <= right) {
+		if(left == right)
+			return;
+		if(left == right - 1) {
+			if(array[left] > array[right])
+				swapReferences(array, left, right);
+			return;
+		}
 			int pivot = median3(array, left, right);
 
 			// Begin partitioning
@@ -40,10 +47,10 @@ public class QuickSort implements Sorter {
 
 			quicksort(array, left, i - 1); // Sort small elements
 			quicksort(array, i + 1, right); // Sort large elements
-		} else {
+		//} else {
 			// Do an insertion sort on the subarray
-			insertionSort(array, left, right);
-		}
+		//	insertionSort(array, left, right);
+		//}
 	}
 
 	private final void swapReferences(int[] array, int a, int b) {
