@@ -40,9 +40,10 @@ public class QuickSort implements Sorter {
 
 			quicksort(array, left, i - 1); // Sort small elements
 			quicksort(array, i + 1, right); // Sort large elements
-		} else
+		} else {
 			// Do an insertion sort on the subarray
 			insertionSort(array, left, right);
+		}
 	}
 
 	private final void swapReferences(int[] array, int a, int b) {
@@ -54,9 +55,9 @@ public class QuickSort implements Sorter {
 	private void insertionSort(int[] array, int left, int right) {
 		int j;
 
-		for (int p = left + 1; p < right; p++) {
+		for (int p = left + 1; p < right - left + 1; p++) {
 			int tmp = array[p];
-			for (j = p; j > 0 && tmp < array[j - 1]; j--)
+			for (j = p; j > left && tmp < array[j - 1]; j--)
 				array[j] = array[j - 1];
 			array[j] = tmp;
 		}
