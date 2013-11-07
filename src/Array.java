@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Timer;
 
 public class Array {
 	int[] array;
@@ -41,17 +42,70 @@ public class Array {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int runTimes = 1000;
-		int[] n = { 10000, 50000, 100000, 200000, 400000, 800000 };
-		Array heapArray, insertArray, mergeArray, quickArray;
-		
-		for (int i : n) {
-			heapArray = new Array(i);
-			heapArray.initialize();
+		int[] ns = { 10000, 50000, 100000, 200000, 400000, 800000 };
+		int[][] runningTimeOfNtimes = new int[4][ns.length];
+		Array array;
+
+		for (int i = 0; i < ns.length; i++) {
+			int n = ns[i];
+			array = new Array(n);
+			array.initialize();
+			for (int j = 0; j < runTimes; j++) {
+				array.shuffle();
+				runningTimeOfNtimes[0][i] += TestofAlgorithm(array,
+						new HeapSort());
+				if (!array.verify()) {
+					System.out
+							.println("HeapSort is not correct for array size "
+									+ n);
+					break;
+				}
+			}
+
+			for (int j = 0; j < runTimes; j++) {
+				array.shuffle();
+				runningTimeOfNtimes[1][i] += TestofAlgorithm(array,
+						new InsertSort());
+				if (!array.verify()) {
+					System.out
+							.println("InsertSort is not correct for array size "
+									+ n);
+					break;
+				}
+			}
+
+			for (int j = 0; j < runTimes; j++) {
+				array.shuffle();
+				runningTimeOfNtimes[2][i] += TestofAlgorithm(array,
+						new MergeSort());
+				if (!array.verify()) {
+					System.out
+							.println("MergeSort is not correct for array size "
+									+ n);
+					break;
+				}
+			}
+
+			for (int j = 0; j < runTimes; j++) {
+				array.shuffle();
+				runningTimeOfNtimes[3][i] += TestofAlgorithm(array,
+						new QuickSort());
+				if (!array.verify()) {
+					System.out
+							.println("QuickSort is not correct for array size "
+									+ n);
+					break;
+				}
+			}
 		}
-	}
-	
-	public static void TestofAlgorithmWithNElements(int[] array, Sorter sort, int n) {
-		
+
+		System.out.println(runningTimeOfNtimes);
 	}
 
+	public static final long TestofAlgorithm(Array array, Sorter sorter) {
+		long startTime = System.currentTimeMillis();
+		array.sort(sorter);
+		long endTime = System.currentTimeMillis();
+		return endTime - startTime;
+	}
 }
