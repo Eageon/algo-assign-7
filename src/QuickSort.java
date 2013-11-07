@@ -28,10 +28,8 @@ public class QuickSort implements Sorter {
 			// Begin partitioning
 			int i = left, j = right - 1;
 			for (;;) {
-				while (array[++i] < pivot) {
-				}
-				while (array[--j] > pivot) {
-				}
+				while (array[++i] < pivot) { }
+				while (array[--j] > pivot) { }
 				if (i < j)
 					swapReferences(array, i, j);
 				else

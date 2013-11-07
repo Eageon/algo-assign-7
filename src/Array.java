@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.util.Timer;
 
 public class Array {
 	int[] array;
@@ -43,7 +42,7 @@ public class Array {
 		// TODO Auto-generated method stub
 		int runTimes = 1000;
 		int[] ns = { 10000, 50000, 100000, 200000, 400000, 800000 };
-		int[][] runningTimeOfNtimes = new int[4][ns.length];
+		long[][] runningTimeOfNtimes = new long[4][ns.length];
 		Array array;
 
 		for (int i = 0; i < ns.length; i++) {
@@ -60,6 +59,9 @@ public class Array {
 									+ n);
 					break;
 				}
+				if ((j + 1) % 100 == 0)
+					System.out.println((j / 100) * 100
+							+ " times for HeapSort of " + n);
 			}
 
 			for (int j = 0; j < runTimes; j++) {
@@ -72,6 +74,9 @@ public class Array {
 									+ n);
 					break;
 				}
+				if ((j + 1) % 100 == 0)
+					System.out.println((j / 100) * 100
+							+ " times for InsertSort of " + n);
 			}
 
 			for (int j = 0; j < runTimes; j++) {
@@ -84,6 +89,9 @@ public class Array {
 									+ n);
 					break;
 				}
+				if ((j + 1) % 100 == 0)
+					System.out.println((j / 100) * 100
+							+ " times for MergeSort of " + n);
 			}
 
 			for (int j = 0; j < runTimes; j++) {
@@ -96,6 +104,9 @@ public class Array {
 									+ n);
 					break;
 				}
+				if ((j + 1) % 100 == 0)
+					System.out.println((j / 100) * 100
+							+ " times for QuickSort of " + n);
 			}
 		}
 
